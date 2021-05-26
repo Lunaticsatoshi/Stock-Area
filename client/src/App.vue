@@ -1,9 +1,9 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <navbar />
+    <mobile-navbar />
+    <router-view />
   </div>
-  <router-view/>
 </template>
 
 <style>
@@ -28,3 +28,30 @@
   color: #42b983;
 }
 </style>
+
+<script>
+import MobileNavbar from "./components/Navbar/MobileNavbar";
+import Navbar from "./components/Navbar/Navbar";
+export default {
+  name: "App",
+  data: () => {
+    return {
+      mobileView: true,
+      showNav: false,
+    };
+  },
+  components: {
+    Navbar,
+    MobileNavbar
+  },
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 990;
+    },
+  },
+  created() {
+    this.handleView();
+    window.addEventListener("resize", this.handleView);
+  },
+};
+</script>
