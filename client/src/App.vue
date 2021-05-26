@@ -24,6 +24,8 @@
 html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 li {
