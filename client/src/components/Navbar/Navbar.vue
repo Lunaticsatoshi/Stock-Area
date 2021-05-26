@@ -68,6 +68,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
+  font-weight: bold;
 }
 
 li {
@@ -88,7 +89,7 @@ a {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #101010;
+  background-color: #ffffff;
 }
 
 .nav-menu {
@@ -104,17 +105,17 @@ a {
 .nav-link {
   font-size: 1.6rem;
   font-weight: 400;
-  color: #475569;
+  color: #ffffff;
 }
 
 .nav-link:hover {
-  color: #482ff7;
+  color: #bb1d87;
 }
 
 .nav-logo {
   font-size: 2.1rem;
   font-weight: 500;
-  color: #482ff7;
+  color: #c60d0d;
 }
 
 @media only screen and (max-width: 768px) {
