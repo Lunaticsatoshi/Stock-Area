@@ -2,21 +2,21 @@
   <header class="header">
     <nav class="navbar">
       <a href="#" class="nav-logo">WebDev.</a>
-      <ul class="nav-menu">
+      <ul v-bind:class="classObject" class="nav-menu">
         <li class="nav-item">
-          <a href="#" class="nav-link">Services</a>
+          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Services</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Blog</a>
+          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Blog</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">About</a>
+          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Contact</a>
         </li>
       </ul>
-      <div class="hamburger">
+      <div v-bind:class="hamburgerObject" @click="hamburgerActive = !hamburgerActive" class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -28,12 +28,39 @@
 <script>
 export default {
   name: "Navbar",
+  data() {
+    return {
+      hamburgerActive: false,
+    };
+  },
+  methods: {
+    hamburgerClick() {
+        this.hamburgerClick = !this.hamburgerClick
+        console.log(this.hamburgerClick)
+    },
+  },
+  computed: {
+    classObject: function () {
+      return {
+        active: this.hamburgerActive ,
+        "nav-menu": !this.hamburgerActive
+      };
+    },
+    hamburgerObject: function () {
+      return {
+        active: this.hamburgerActive ,
+        "hamburger": !this.hamburgerActive
+      };
+    },
+  },
 };
 </script>
 
 <style scoped>
 .header {
-  border-bottom: 1px solid #e2e8f0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 10px;
 }
 
 .navbar {
@@ -44,11 +71,11 @@ export default {
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .hamburger {
   display: none;
@@ -115,6 +142,18 @@ a {
   .hamburger {
     display: block;
     cursor: pointer;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 </style>
