@@ -42,6 +42,14 @@ export default {
   align-items: center;
   padding: 1rem 1.5rem;
 }
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
 .hamburger {
   display: none;
 }

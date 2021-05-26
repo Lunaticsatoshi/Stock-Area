@@ -1,7 +1,6 @@
 <template>
   <div>
     <navbar />
-    <mobile-navbar />
     <router-view />
   </div>
 </template>
@@ -30,7 +29,6 @@
 </style>
 
 <script>
-import MobileNavbar from "./components/Navbar/MobileNavbar";
 import Navbar from "./components/Navbar/Navbar";
 export default {
   name: "App",
@@ -42,7 +40,6 @@ export default {
   },
   components: {
     Navbar,
-    MobileNavbar
   },
   methods: {
     handleView() {
