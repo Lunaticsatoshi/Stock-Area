@@ -2,8 +2,12 @@
   <div class="card">
     <div class="card__text">
       <div class="card__header">
-        <h1 class="heading">Card Header</h1>
-        <h5 class="subheading">Card Subheader</h5>
+        <h1 class="heading">{{ warehouse.name }}</h1>
+        <h5 class="subheading">{{ warehouse.type }}</h5>
+      </div>
+      <div class="card__body">
+        <span class="subheading">{{ warehouse.city }} </span
+        ><span class="subheading"> | {{ warehouse.cluster }}</span>
       </div>
     </div>
 
@@ -14,6 +18,9 @@
 <script>
 export default {
   name: "Card",
+  props: {
+    warehouse: Object,
+  },
 };
 </script>
 
@@ -33,13 +40,13 @@ export default {
   border-radius: 7px;
 }
 
-.heading{
-    font-size: 3.4rem;
-    font-weight: bold;
+.heading {
+  font-size: 3.4rem;
+  font-weight: bold;
 }
 
-.subheading{
-    color: rgb(194, 16, 16);
+.subheading {
+  color: rgb(194, 16, 16);
 }
 .edit__button {
   background-color: rgb(235, 67, 45);
@@ -52,10 +59,21 @@ export default {
   font-size: 1.24rem;
 }
 
+.card__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 .card__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
+}
+
+.card__body{
+    margin-top: 10px;
 }
 </style>
