@@ -28,15 +28,22 @@
         </select>
       </div>
     </div>
+
+    <div class="card__list">
+      <card />
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Card from "@/components/Card/Card";
 
 export default {
   name: "Home",
-  components: {},
+  components: {
+    Card,
+  },
 };
 </script>
 
@@ -80,6 +87,11 @@ export default {
   padding: 0 10px;
 }
 
+.card__list {
+  width: 1100px;
+  margin: 20px auto;
+}
+
 @media only screen and (max-width: 768px) {
   .home {
     width: 100%;
@@ -118,6 +130,10 @@ export default {
     border-radius: 7px;
     padding: 0 10px;
     margin: 10px;
+  }
+
+  .card__list {
+    width: 100%;
   }
 }
 </style>

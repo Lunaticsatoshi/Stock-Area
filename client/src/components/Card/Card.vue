@@ -16,7 +16,7 @@ export default {
 <style>
 .card{
     width: 100%;
-    margin: 10px 20px;
+    margin: 10px auto;
     padding: 10px 10px;
     background-color: #ffffff;
     color: #000000;
