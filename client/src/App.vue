@@ -40,25 +40,17 @@ a {
 
 <script>
 import Navbar from "./components/Navbar/Navbar";
+import {mapActions} from 'vuex';
 export default {
   name: "App",
-  data: () => {
-    return {
-      mobileView: true,
-      showNav: false,
-    };
-  },
   components: {
     Navbar,
   },
   methods: {
-    handleView() {
-      this.mobileView = window.innerWidth <= 990;
-    },
+    ...mapActions(["setWarehouses"]),
   },
-  created() {
-    this.handleView();
-    window.addEventListener("resize", this.handleView);
-  },
+  mounted() {
+    this.setWarehouses;
+  }
 };
 </script>
