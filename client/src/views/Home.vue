@@ -29,9 +29,8 @@
       </div>
     </div>
 
-    <div class="card__list">
-      {{warehouses}}
-      <card />
+    <div class="card__list" v-for="warehouse in warehouses" :key="warehouse.id">
+      <card :warehouse="warehouse"/>
     </div>
   </div>
 </template>
