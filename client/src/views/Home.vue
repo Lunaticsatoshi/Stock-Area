@@ -8,23 +8,14 @@
         class="text__input"
       />
       <div class="select__inputs">
-        <select name="cars" id="cars" class="select__input">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select name="cars" id="cars" class="select__input" v-model="city" @change="onChange()">
+          <option v-for="city in cities" :key="city.id">{{city}}</option>
         </select>
-        <select name="cars" id="cars" class="select__input">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select name="cars" id="cars" class="select__input" v-model="cluster" @change="onChange()">
+          <option v-for="cluster in clusters" :key="cluster.id">{{cluster}}</option>
         </select>
-        <select name="cars" id="cars" class="select__input">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select name="cars" id="cars" class="select__input" v-model="spaceavailable" @change="onChange()">
+          <option v-for="spaceavailable in spacesavailable" :key="spaceavailable.id">{{spaceavailable}}</option>
         </select>
       </div>
     </div>
@@ -45,8 +36,38 @@ export default {
   components: {
     Card,
   },
+  data(){
+    return {
+      cities: [],
+      city: "Delhi",
+      clusters: [],
+      cluster: "cluster-a-32",
+      spacesavailable: [],
+      spaceavailable: 1234
+    }
+  },
   computed: { 
     ...mapGetters({warehouses: "getWarehouses"}),
+  },
+  updated() {
+    this.warehouses.forEach((warehouse) => {
+      if(!this.cities.includes(warehouse.city)){
+        this.cities.push(warehouse.city);
+      }
+      if(!this.clusters.includes(warehouse.cluster)){
+        this.clusters.push(warehouse.cluster);
+      }
+      if(!this.spacesavailable.includes(warehouse.space_available)){
+        this.spacesavailable.push(warehouse.space_available);
+      }
+    })
+  },
+  methods: {
+    onChange(){
+      let newWarehouses = this.warehouses.filter((warehouse) => warehouse.city === this.city)
+      this.warehouses = newWarehouses
+      console.log(newWarehouses);
+    }
   }
 };
 </script>
