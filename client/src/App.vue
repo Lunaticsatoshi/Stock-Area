@@ -50,7 +50,7 @@ export default {
     ...mapActions(["setWarehouses"]),
   },
   mounted() {
-    this.setWarehouses;
+    this.setWarehouses();
   }
 };
 </script>

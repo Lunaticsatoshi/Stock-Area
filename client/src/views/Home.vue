@@ -30,6 +30,7 @@
     </div>
 
     <div class="card__list">
+      {{warehouses}}
       <card />
     </div>
   </div>
@@ -38,12 +39,16 @@
 <script>
 // @ is an alias to /src
 import Card from "@/components/Card/Card";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Home",
   components: {
     Card,
   },
+  computed: { 
+    ...mapGetters({warehouses: "getWarehouses"}),
+  }
 };
 </script>
 
