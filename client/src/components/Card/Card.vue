@@ -1,27 +1,61 @@
 <template>
   <div class="card">
+    <div class="card__text">
       <div class="card__header">
-          <h1>Card Header</h1>
-          <h5>Card Subheader</h5>
+        <h1 class="heading">Card Header</h1>
+        <h5 class="subheading">Card Subheader</h5>
       </div>
+    </div>
+
+    <a class="edit__button" href="#">Visit</a>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Card"
-}
+  name: "Card",
+};
 </script>
 
 <style>
-.card{
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px 10px;
-    background-color: #ffffff;
-    color: #000000;
-    height: 100px;
-    font-size: 1.5rem;
+.card {
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px 10px;
+  background-color: #000000;
+  color: #ffffff;
+  height: 150px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 0.3px solid #ffffff;
+  border-radius: 7px;
 }
 
+.heading{
+    font-size: 3.4rem;
+    font-weight: bold;
+}
+
+.subheading{
+    color: rgb(194, 16, 16);
+}
+.edit__button {
+  background-color: rgb(235, 67, 45);
+  width: 100px;
+  height: 35px;
+  padding: 10px;
+  border-radius: 25px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.24rem;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
 </style>
