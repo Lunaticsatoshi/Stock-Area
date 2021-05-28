@@ -8,45 +8,20 @@
         class="text__input"
       />
       <div class="select__inputs">
-        <select
-          name="cars"
-          id="cars"
-          class="select__input"
-          v-model="city"
-          @change="onChange()"
-        >
-          <option v-for="city in cities" :key="city.id">{{ city }}</option>
+        <select name="cars" id="cars" class="select__input" v-model="city" @change="onChange()">
+          <option v-for="city in cities" :key="city.id">{{city}}</option>
         </select>
-        <select
-          name="cars"
-          id="cars"
-          class="select__input"
-          v-model="cluster"
-          @change="onChange()"
-        >
-          <option v-for="cluster in clusters" :key="cluster.id">
-            {{ cluster }}
-          </option>
+        <select name="cars" id="cars" class="select__input" v-model="cluster" @change="onChange()">
+          <option v-for="cluster in clusters" :key="cluster.id">{{cluster}}</option>
         </select>
-        <select
-          name="cars"
-          id="cars"
-          class="select__input"
-          v-model="spaceavailable"
-          @change="onChange()"
-        >
-          <option
-            v-for="spaceavailable in spacesavailable"
-            :key="spaceavailable.id"
-          >
-            {{ spaceavailable }}
-          </option>
+        <select name="cars" id="cars" class="select__input" v-model="spaceavailable" @change="onChange()">
+          <option v-for="spaceavailable in spacesavailable" :key="spaceavailable.id">{{spaceavailable}}</option>
         </select>
       </div>
     </div>
 
     <div class="card__list" v-for="warehouse in warehouses" :key="warehouse.id">
-      <card :warehouse="warehouse" />
+      <card :warehouse="warehouse"/>
     </div>
   </div>
 </template>
@@ -54,69 +29,46 @@
 <script>
 // @ is an alias to /src
 import Card from "@/components/Card/Card";
-import { mapGetters, mapActions } from "vuex";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Home",
   components: {
     Card,
   },
-  data() {
+  data(){
     return {
       cities: [],
       city: "Delhi",
       clusters: [],
       cluster: "cluster-a-32",
       spacesavailable: [],
-      spaceavailable: 1234,
-    };
+      spaceavailable: 1234
+    }
   },
-  computed: {
-    ...mapGetters({ warehouses: "getWarehouses" }),
+  computed: { 
+    ...mapGetters({warehouses: "getWarehouses"}),
   },
   updated() {
     this.warehouses.forEach((warehouse) => {
-      if (!this.cities.includes(warehouse.city)) {
+      if(!this.cities.includes(warehouse.city)){
         this.cities.push(warehouse.city);
       }
-      if (!this.clusters.includes(warehouse.cluster)) {
+      if(!this.clusters.includes(warehouse.cluster)){
         this.clusters.push(warehouse.cluster);
       }
-      if (!this.spacesavailable.includes(warehouse.space_available)) {
+      if(!this.spacesavailable.includes(warehouse.space_available)){
         this.spacesavailable.push(warehouse.space_available);
       }
-    });
+    })
   },
   methods: {
-    ...mapActions(["filtweWarehouses"]),
-    onChange(type) {
-      let filterData = {};
-      switch (type) {
-        case "city":
-          filterData = {
-            value: this.city,
-            type: type,
-          };
-          this.filtweWarehouses(filterData);
-          break;
-        case "cluster":
-          filterData = {
-            value: this.cluster,
-            type: type,
-          };
-          this.filtweWarehouses(filterData);
-          break;
-        case "spaceavailable":
-          filterData = {
-            value: this.spaceavailable,
-            type: type,
-          };
-          this.filtweWarehouses(filterData);
-          break;
-      }
-      console.log(this.warehouses)
-    },
-  },
+    onChange(){
+      let newWarehouses = this.warehouses.filter((warehouse) => warehouse.city === this.city)
+      this.warehouses = newWarehouses
+      console.log(newWarehouses);
+    }
+  }
 };
 </script>
 
