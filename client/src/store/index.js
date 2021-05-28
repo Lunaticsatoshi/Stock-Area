@@ -14,7 +14,7 @@ export default createStore({
     setWarehouses(state, payload) {
       state.warehouses = payload;
     },
-    setFilteresWarehouses(state, payload) {
+    setFilteredWarehouses(state, payload) {
       state.filteredWarehouses = payload;
     },
   },
@@ -40,7 +40,7 @@ export default createStore({
           );
           break;
       }
-      commit("setFilteresWarehouses", data);
+      commit("setFilteredWarehouses", data);
     },
   },
 });
