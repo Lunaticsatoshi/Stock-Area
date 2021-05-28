@@ -8,7 +8,7 @@
         class="text__input"
       />
       <div class="select__inputs">
-        <select name="cars" id="cars" class="select__input" v-model="city" @change="onChange('city')">
+        <select name="cars" id="cars" class="select__input" v-model="city" @change="onChange()">
           <option v-for="city in cities" :key="city.id">{{city}}</option>
         </select>
         <select name="cars" id="cars" class="select__input" v-model="cluster" @change="onChange()">
@@ -29,7 +29,7 @@
 <script>
 // @ is an alias to /src
 import Card from "@/components/Card/Card";
-import {mapGetters, mapActions} from "vuex";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Home",
@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: { 
-    ...mapGetters({warehouses: "getWarehouses", filteredWarehouses: "getFilteredWarehouses"}),
+    ...mapGetters({warehouses: "getWarehouses"}),
   },
   updated() {
     this.warehouses.forEach((warehouse) => {
@@ -63,19 +63,10 @@ export default {
     })
   },
   methods: {
-    ...mapActions(["filterWareHouses"]),
-    onChange(type){
-      let filterData = {}
-      switch(type){
-        case "city":
-          filterData = {
-            type: type,
-            value: this.city
-          }
-          this.filterWareHouses(filterData);
-          break;
-      }
-      console.log(this.filteredWarehouses)
+    onChange(){
+      let newWarehouses = this.warehouses.filter((warehouse) => warehouse.city === this.city)
+      this.warehouses = newWarehouses
+      console.log(newWarehouses);
     }
   }
 };
