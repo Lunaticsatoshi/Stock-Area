@@ -51,7 +51,9 @@
         />
         <label for="warehouseLiveStatus">Warhouse Live Status</label>
       </div>
-      <button type="submit" class="submit__buttom" @click="onSubmit()">Submit</button>
+      <button type="submit" class="submit__buttom" @click="onSubmit()">
+        Submit
+      </button>
     </div>
     <div v-show="!editing" class="card">
       <div class="card__text">
@@ -60,8 +62,36 @@
           <h5 class="subheading">{{ warehouse.type }}</h5>
         </div>
         <div class="card__body">
-          <span class="subheading">{{ warehouse.city }} </span
-          ><span class="subheading"> | {{ warehouse.cluster }}</span>
+          <div class="body__group">
+            <span class="body__label"> City: </span
+            ><span class="body__text"> {{ warehouse.city }}</span>
+          </div>
+          <div class="body__group">
+            <span class="body__label"> Code: </span
+            ><span class="body__text"> {{ warehouse.code }}</span>
+          </div>
+          <div class="body__group">
+            <span class="body__label"> Available Space: </span
+            ><span class="body__text"> {{ warehouse.space_available }}</span>
+          </div>
+          <div class="body__group">
+            <span class="body__label"> Live Status: </span
+            ><input
+              type="checkbox"
+              class="checkbox__input"
+              disabled
+              v-model="warehouse.is_live"
+            />
+          </div>
+          <div class="body__group">
+            <span class="body__label"> Registered Status: </span
+            ><input
+              type="checkbox"
+              class="checkbox__input"
+              disabled
+              v-model="warehouse.is_registered"
+            />
+          </div>
         </div>
       </div>
 
@@ -96,23 +126,23 @@ export default {
       this.warehouseSpaceAvailable = this.warehouse.space_available;
       this.warehouseLiveStatus = this.warehouse.is_live;
     },
-    editWarehouse(){
-      this.editing = true
+    editWarehouse() {
+      this.editing = true;
       this.setData();
     },
-    onSubmit(){
+    onSubmit() {
       const updateWarehouse = {
         ...this.warehouse,
-        "name": this.warehouseName,
-        "city": this.warehouseCity,
-        "space_available": this.warehouseSpaceAvailable,
-        "cluster": this.warehouseCluster,
-        "is_live": this.warehouseLiveStatus
-      }
+        name: this.warehouseName,
+        city: this.warehouseCity,
+        space_available: this.warehouseSpaceAvailable,
+        cluster: this.warehouseCluster,
+        is_live: this.warehouseLiveStatus,
+      };
       console.log(updateWarehouse);
       this.updateWarehouse(updateWarehouse);
       console.log("warehouseUpdated");
-    }
+    },
   },
 };
 </script>
@@ -195,6 +225,8 @@ export default {
 
 .subheading {
   color: rgb(194, 16, 16);
+  margin-top: 1.1rem;
+  font-size: 1.7rem;
 }
 .edit__button {
   background-color: rgb(235, 67, 45);
@@ -237,5 +269,24 @@ export default {
 
 .card__body {
   margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.body__group {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.body__label {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.body__text {
+  color: rgb(235, 67, 45);
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
 }
 </style>
