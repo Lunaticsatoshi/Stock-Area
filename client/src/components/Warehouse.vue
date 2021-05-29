@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <a class="edit__button" href="#">Visit</a>
+    <a class="edit__button" href="#">Edit</a>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
 .card {
   width: 100%;
   margin: 10px auto;
-  padding: 10px 10px;
+  padding: 10px 30px;
   background-color: #000000;
   color: #ffffff;
   height: 300px;
