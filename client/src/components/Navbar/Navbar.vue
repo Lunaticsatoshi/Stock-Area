@@ -4,16 +4,16 @@
       <a href="#" class="nav-logo">WebDev.</a>
       <ul v-bind:class="classObject" class="nav-menu">
         <li class="nav-item">
-          <a href="/about" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</a>
+          <router-link v-bind:to="'/about'" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</router-link>
         </li>
         <li class="nav-item">
-          <a href="/add" class="nav-link" @click="hamburgerActive = !hamburgerActive">Add Warehouse</a>
+          <router-link v-bind:to="'/add'" class="nav-link" @click="hamburgerActive = !hamburgerActive">Add Warehouse</router-link>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Services</a>
+          <router-link v-bind:to="'#'" class="nav-link" @click="hamburgerActive = !hamburgerActive">Services</router-link>
         </li>
         <li class="nav-item">
-          <a href="https://github.com/Lunaticsatoshi" class="nav-link" @click="hamburgerActive = !hamburgerActive">Github</a>
+          <router-link v-bind:to="'https://github.com/Lunaticsatoshi'" class="nav-link" @click="hamburgerActive = !hamburgerActive">Github</router-link>
         </li>
       </ul>
       <div v-bind:class="hamburgerObject" @click="hamburgerActive = !hamburgerActive" class="hamburger">
