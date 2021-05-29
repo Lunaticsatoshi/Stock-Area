@@ -67,7 +67,7 @@
 <script>
 // @ is an alias to /src
 import Card from "@/components/Card/Card";
-import { mapGetters } from "vuex";
+import { mapGetters,mapActions } from "vuex";
 
 export default {
   name: "Home",
@@ -102,7 +102,11 @@ export default {
       }
     });
   },
+  mounted(){
+    this.setWarehouses();
+  },
   methods: {
+    ...mapActions(["setWarehouses"]),
     async onChangeCity() {
       this.filter = true;
       this.filteredWarehouses = await this.warehouses.filter(
