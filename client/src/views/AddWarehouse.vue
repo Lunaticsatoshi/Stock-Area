@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "AddWarehouse",
   data() {
@@ -111,6 +111,7 @@ export default {
     ...mapGetters({ warehouses: "getWarehouses" }),
   },
   methods: {
+    ...mapActions(["setWarehouses","addWarehouse"]),
     onSubmit() {
       const newWarehouse = {
         name: this.warehouseName,
@@ -123,7 +124,11 @@ export default {
         is_registered: this.warehouseRegisteredStatus,
         is_live: this.warehouseLiveStatus
       };
-      console.log(this.warehouses.length);
+      console.log(newWarehouse);
+      this.addWarehouse(newWarehouse);
+      console.log("Warehouse Added");
+      this.setWarehouses();
+      this.$router.push("/");
     },
   },
 };

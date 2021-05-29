@@ -153,6 +153,17 @@
       "cluster": "cluster-a-7",
       "is_registered": true,
       "is_live": true
+    },
+    {
+      "name": "Warehouse-418",
+      "code": "W-000169",
+      "id": 15,
+      "city": "Mumbai",
+      "space_available": "230000",
+      "type": "Loli Storage",
+      "cluster": "cluster-a-21",
+      "is_registered": false,
+      "is_live": true
     }
   ]
 }
