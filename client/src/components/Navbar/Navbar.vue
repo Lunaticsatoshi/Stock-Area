@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="navbar">
-      <a href="#" class="nav-logo">WebDev.</a>
+      <a href="#" class="nav-logo">Warehouse.</a>
       <ul v-bind:class="classObject" class="nav-menu">
         <li class="nav-item">
           <router-link v-bind:to="'/about'" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</router-link>
