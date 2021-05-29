@@ -142,6 +142,7 @@ export default {
       console.log(updateWarehouse);
       this.updateWarehouse(updateWarehouse);
       console.log("warehouseUpdated");
+      this.$router.push("/");
     },
   },
 };
@@ -202,6 +203,7 @@ export default {
   margin-right: 10px;
   width: 30px;
   height: 15px;
+  color: green;
 }
 .card {
   width: 70%;
