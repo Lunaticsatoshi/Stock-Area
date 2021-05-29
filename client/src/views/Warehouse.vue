@@ -1,17 +1,17 @@
 <template>
   <div class="warehouse">
     <h1>This is a Warehouse</h1>
-    <!-- <warehouse /> -->
+    <warehouse />
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
-// import Warehouse from "@/components/Warehouse";
+import Warehouse from "@/components/Warehouse";
 export default {
   name: "Warehouse",
   components: {
-    // Warehouse,
+    Warehouse,
   },
   methods: {
     ...mapActions(["setWarehouse"]),
