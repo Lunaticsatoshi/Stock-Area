@@ -9,7 +9,7 @@
       "type": "Leasable Space",
       "cluster": "cluster-a-32",
       "is_registered": true,
-      "is_live": false
+      "is_live": true
     },
     {
       "name": "Warehouse-276",
