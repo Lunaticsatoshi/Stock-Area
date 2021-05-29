@@ -8,6 +8,7 @@ export default createStore({
   },
   getters: {
     getWarehouses: (state) => state.warehouses,
+    getWarehouse: (state) => state.warehouse
   },
   mutations: {
     setWarehouses(state,payload){
