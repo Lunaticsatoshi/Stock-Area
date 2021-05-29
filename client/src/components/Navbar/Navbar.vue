@@ -4,16 +4,16 @@
       <a href="#" class="nav-logo">WebDev.</a>
       <ul v-bind:class="classObject" class="nav-menu">
         <li class="nav-item">
+          <a href="/about" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/add" class="nav-link" @click="hamburgerActive = !hamburgerActive">Add Warehouse</a>
+        </li>
+        <li class="nav-item">
           <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Services</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link" @click="hamburgerActive = !hamburgerActive">Contact</a>
+          <a href="https://github.com/Lunaticsatoshi" class="nav-link" @click="hamburgerActive = !hamburgerActive">Github</a>
         </li>
       </ul>
       <div v-bind:class="hamburgerObject" @click="hamburgerActive = !hamburgerActive" class="hamburger">
