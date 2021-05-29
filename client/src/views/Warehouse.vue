@@ -29,4 +29,18 @@ export default {
   margin: 50px auto;
   padding: 0 10px;
 }
+@media only screen and (max-width: 768px) {
+  .warehouse {
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 10px;
+  }
+  .inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+  }
+}
 </style>
