@@ -10,7 +10,7 @@
         ><span class="subheading"> | {{ warehouse.cluster }}</span>
       </div>
     </div>
-    <router-link class="edit__button" v-bind:to="'/user/'+warehouse.id">View</router-link>
+    <router-link class="edit__button" v-bind:to="'/warehouse/'+warehouse.id">View</router-link>
     <!-- <a class="edit__button" >Visit</a> -->
   </div>
 </template>
