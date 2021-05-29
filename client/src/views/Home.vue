@@ -1,13 +1,19 @@
 <template>
   <div class="home">
     <div class="inputs">
-      <input
-        type="text"
-        aria-label="search"
-        placeholder="Search"
-        class="text__input"
-      />
-      <button class="edit__button" @click="removeFilter()">X</button>
+      <div class="search__input">
+        <input
+          type="text"
+          aria-label="search"
+          placeholder="Search"
+          class="text__input"
+          v-model="warehouseName"
+        />
+        <button class="edit__button search" @click="search()">
+          <i v-show="!searching" class="fas fa-search"></i>
+          <i v-show="searching" class="far fa-times-circle"></i>
+        </button>
+      </div>
       <div class="select__inputs">
         <select
           name="cars"
@@ -43,9 +49,18 @@
             {{ spaceavailable }}
           </option>
         </select>
-        <button class="edit__button" @click="removeFilter()">X</button>
+        <button class="edit__button" @click="removeFilter()"><i class="far fa-times-circle"></i></button>
       </div>
     </div>
+    <!-- <div v-show="searching">
+      <div
+        class="card__list"
+        v-for="warehouse in searchedWarehouses"
+        :key="warehouse.id"
+      >
+        <card :warehouse="warehouse" />
+      </div>
+    </div> -->
     <div>
       <div
         v-show="filter"
@@ -87,6 +102,9 @@ export default {
       spaceavailable: 1234,
       filteredWarehouses: [],
       filter: false,
+      warehouseName: "",
+      searching: false,
+      searchedWarehouses: [],
     };
   },
   computed: {
@@ -112,6 +130,8 @@ export default {
     ...mapActions(["setWarehouses"]),
     async onChangeCity() {
       this.filter = true;
+      this.cluster= "cluster-a-32";
+      this.spaceavailable= 1234;
       this.filteredWarehouses = await this.warehouses.filter(
         (warehouse) => warehouse.city === this.city
       );
@@ -128,6 +148,8 @@ export default {
     },
     async onChangeCluster() {
       this.filter = true;
+      this.city= "Delhi"
+      this.spaceavailable= 1234;
       this.filteredWarehouses = await this.warehouses.filter(
         (warehouse) => warehouse.cluster === this.cluster
       );
@@ -144,6 +166,8 @@ export default {
     },
     async onChangeSpaceAvailable() {
       this.filter = true;
+      this.city= "Delhi"
+      this.cluster= "cluster-a-32";
       this.filteredWarehouses = await this.warehouses.filter(
         (warehouse) =>
           warehouse.space_available === parseInt(this.spaceavailable)
@@ -165,6 +189,14 @@ export default {
     removeFilter() {
       this.filter = false;
     },
+    search() {
+      console.log("searching");
+      this.searching = !this.searching;
+      this.searchedWarehouses = this.warehouses.filter((warehouse) => {
+        warehouse.name === this.warehouseName;
+      });
+      console.log(this.searchedWarehouses);
+    },
   },
 };
 </script>
@@ -181,6 +213,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin: 0 10px;
+}
+
+.search__input {
+  display: flex;
+  align-items: center;
 }
 
 .select__inputs {
@@ -216,8 +253,8 @@ export default {
 
 .edit__button {
   background-color: rgb(235, 67, 45);
-  width: 50px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   padding: 10px;
   border-radius: 25px;
   color: #ffffff;
@@ -226,11 +263,18 @@ export default {
   border: none;
 }
 
+.search {
+  margin-left: 0.7rem;
+}
+
 @media only screen and (max-width: 768px) {
   .home {
     width: 100%;
     margin: 50px auto;
     padding: 0 10px;
+  }
+  .search__input {
+    width: 100%;
   }
   .inputs {
     display: flex;
