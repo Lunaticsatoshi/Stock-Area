@@ -1,6 +1,6 @@
 <template>
   <div class="warehouse">
-    <h1>This is a Warehouse</h1>
+    <h1 class="warehouse__header">Warehouse Details</h1>
     <Warehouse />
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
   width: 1300px;
   margin: 50px auto;
   padding: 0 10px;
+}
+.warehouse__header{
+    font-size: 3rem;
 }
 @media only screen and (max-width: 768px) {
   .warehouse {
