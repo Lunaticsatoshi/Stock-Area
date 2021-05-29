@@ -145,7 +145,7 @@ export default {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 30px;
   margin: 10px auto;
 }
 
