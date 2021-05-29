@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "Card",
+  name: "Warehouse",
   props: {
     warehouse: Object,
   },
