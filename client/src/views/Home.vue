@@ -7,6 +7,7 @@
         placeholder="Search"
         class="text__input"
       />
+      <button class="edit__button" @click="removeFilter()">X</button>
       <div class="select__inputs">
         <select
           name="cars"
@@ -45,21 +46,23 @@
         <button class="edit__button" @click="removeFilter()">X</button>
       </div>
     </div>
-    <div
-      v-show="filter"
-      class="card__list"
-      v-for="warehouse in filteredWarehouses"
-      :key="warehouse.id"
-    >
-      <card :warehouse="warehouse" />
-    </div>
-    <div
-      v-show="!filter"
-      class="card__list"
-      v-for="warehouse in warehouses"
-      :key="warehouse.id"
-    >
-      <card :warehouse="warehouse" />
+    <div>
+      <div
+        v-show="filter"
+        class="card__list"
+        v-for="warehouse in filteredWarehouses"
+        :key="warehouse.id"
+      >
+        <card :warehouse="warehouse" />
+      </div>
+      <div
+        v-show="!filter"
+        class="card__list"
+        v-for="warehouse in warehouses"
+        :key="warehouse.id"
+      >
+        <card :warehouse="warehouse" />
+      </div>
     </div>
   </div>
 </template>
@@ -67,7 +70,7 @@
 <script>
 // @ is an alias to /src
 import Card from "@/components/Card/Card";
-import { mapGetters,mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Home",
@@ -102,7 +105,7 @@ export default {
       }
     });
   },
-  mounted(){
+  mounted() {
     this.setWarehouses();
   },
   methods: {
