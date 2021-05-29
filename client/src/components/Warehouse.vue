@@ -289,4 +289,43 @@ export default {
   font-size: 1.5rem;
   margin-left: 0.5rem;
 }
+@media only screen and (max-width: 768px) {
+  .heading {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+
+  .subheading {
+    color: rgb(194, 16, 16);
+    margin-top: 0.5rem;
+    font-size: 1.7rem;
+  }
+  .edit__button {
+    background-color: rgb(235, 67, 45);
+    width: 70px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.24rem;
+    border: none;
+  }
+
+  .body__group {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .body__label {
+    color: #ffffff;
+    font-size: 1.4rem;
+  }
+  .body__text {
+    color: rgb(235, 67, 45);
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+  }
+}
 </style>
