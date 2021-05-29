@@ -31,6 +31,10 @@ export default createStore({
     async updateWarehouse({commit},warehouse){
       let {data} = await axios.put(`http://localhost:5000/warehouses/${warehouse.id}`,warehouse)
       commit("setWarehouse",data)
+    },
+    async addWarehouse({commit},warehouse){
+      let {data} = await axios.post(`http://localhost:5000/warehouses`,warehouse)
+      commit("setWarehouse",data)
     }
   },
   modules: {

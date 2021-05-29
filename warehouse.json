@@ -142,6 +142,17 @@
       "cluster": "cluster-a-1",
       "is_registered": true,
       "is_live": true
+    },
+    {
+      "name": "Warehouse-418",
+      "code": "W-000069",
+      "id": 14,
+      "city": "Mumbai",
+      "space_available": 6540,
+      "type": "Leasable Space",
+      "cluster": "cluster-a-7",
+      "is_registered": true,
+      "is_live": true
     }
   ]
 }
