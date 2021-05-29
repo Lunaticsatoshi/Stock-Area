@@ -29,7 +29,7 @@ npm i
 ```
 npm run server
 ```
-### Steps to start the Frontend
+### Steps to start the Frontend client
 1. Change the directory to client
 
 2. Install dependencies
