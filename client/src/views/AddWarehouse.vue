@@ -80,7 +80,9 @@
           class="checkbox__input"
           v-model="warehouseRegisteredStatus"
         />
-        <label for="warehouseRegisteredStatus">Warhouse Registered Status</label>
+        <label for="warehouseRegisteredStatus"
+          >Warhouse Registered Status</label
+        >
       </div>
       <button type="submit" class="submit__buttom" @click="onSubmit()">
         Submit
@@ -90,6 +92,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "AddWarehouse",
   data() {
@@ -103,6 +106,25 @@ export default {
       warehouseLiveStatus: false,
       warehouseRegisteredStatus: false,
     };
+  },
+  computed: {
+    ...mapGetters({ warehouses: "getWarehouses" }),
+  },
+  methods: {
+    onSubmit() {
+      const newWarehouse = {
+        name: this.warehouseName,
+        code: this.warehouseCode,
+        id: this.warehouses.length + 1,
+        city: this.warehouseCity,
+        space_available: this.warehouseSpaceAvailable,
+        type: this.warehouseType,
+        cluster: this.warehouseCluster,
+        is_registered: this.warehouseRegisteredStatus,
+        is_live: this.warehouseLiveStatus
+      };
+      console.log(this.warehouses.length);
+    },
   },
 };
 </script>
