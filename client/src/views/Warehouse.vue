@@ -1,7 +1,7 @@
 <template>
   <div class="warehouse">
     <h1>This is a Warehouse</h1>
-    <warehouse />
+    <Warehouse />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { mapActions } from "vuex";
 import Warehouse from "@/components/Warehouse";
 export default {
-  name: "Warehouse",
+  name: "WarehouseView",
   components: {
     Warehouse,
   },

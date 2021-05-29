@@ -16,11 +16,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Warehouse",
-  props: {
-    warehouse: Object,
-  },
   computed: {
     ...mapGetters({ warehouse: "getWarehouse" }),
   },
