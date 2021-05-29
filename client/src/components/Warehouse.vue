@@ -21,6 +21,9 @@ export default {
   props: {
     warehouse: Object,
   },
+  computed: {
+    ...mapGetters({ warehouse: "getWarehouse" }),
+  },
 };
 </script>
 
@@ -73,7 +76,7 @@ export default {
   flex-direction: column;
 }
 
-.card__body{
-    margin-top: 10px;
+.card__body {
+  margin-top: 10px;
 }
 </style>
